@@ -1,0 +1,117 @@
+<MyButton@Button>:
+    font_size: '40sp'
+    color: 1, 0.6, 0, 1
+
+
+<MyBoxLayout@BoxLayout>:
+    orientation: 'vertical'
+    spacing: 2
+
+
+<Container>:
+    rows:3
+    label: label
+
+    GridLayout:
+        cols: 1
+        size_hint: 1, 0.22
+
+        Label:
+            id: label
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            font_size: '50sp'
+            color: 1, 0.6, 0, 1
+            text: ""
+
+    GridLayout:
+        cols: 4
+
+        MyBoxLayout:
+            padding: [2, 0, 0, 0]
+
+            MyButton:
+                text: "7"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "4"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "1"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "0"
+                on_release: root.add_nule(self.text)
+
+        MyBoxLayout:
+
+            MyButton:
+                text: "8"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "5"
+                on_release: root.add_number(self.text)
+                on_press: self.text = "Bd"
+                on_release: self.text = "5"
+
+
+            MyButton:
+                text: "2"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "."
+                on_release: root.add_dot(self.text)
+
+        MyBoxLayout:
+
+            MyButton:
+                text: "9"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "6"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "3"
+                on_release: root.add_number(self.text)
+
+            MyButton:
+                text: "AC"
+                on_release: root.update_label()
+
+        MyBoxLayout:
+
+            padding: [0, 0, 2, 0]
+
+
+            MyButton:
+                text: "*"
+                on_release: root.add_operation(self.text)
+
+            MyButton:
+                text: "/"
+                on_release: root.add_operation(self.text)
+
+            MyButton:
+                text: "-"
+                on_release: root.add_operation(self.text)
+
+            MyButton:
+                text: "+"
+                on_release: root.add_operation(self.text)
+
+    BoxLayout:
+        size_hint: 1, 0.30
+        padding: [2, 2, 2, 2]
+
+        MyButton:
+
+            text: '='
+            on_release: root.result()
